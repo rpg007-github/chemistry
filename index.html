@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>General Chemistry I Fundamentals</title>
+  <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Source+Sans+3:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root{--bg:#faf8f5;--bg-card:#fff;--text:#2c2c2c;--text-muted:#6b6b6b;--accent:#7a3b2e;--accent-light:#f5ece8;--accent-warm:#8b5e3c;--border:#e2ddd6;--border-light:#f0ece6;--highlight:#fffbe6;--shadow:0 1px 3px rgba(0,0,0,.06),0 4px 12px rgba(0,0,0,.04);--shadow-hover:0 2px 8px rgba(0,0,0,.08),0 8px 24px rgba(0,0,0,.06)}
+    *{margin:0;padding:0;box-sizing:border-box}body{font-family:'Source Sans 3',sans-serif;background:var(--bg);color:var(--text);line-height:1.7;font-size:16px}
+    .hero{background:linear-gradient(135deg,#3a1a12 0%,#7a3b2e 40%,#9a5b4e 100%);color:#fff;padding:4rem 2rem 3.5rem;text-align:center;position:relative;overflow:hidden}.hero::before{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");opacity:.5}.hero h1{font-family:'Crimson Pro',serif;font-size:clamp(2rem,5vw,3.2rem);font-weight:300;letter-spacing:.02em;margin-bottom:.5rem;position:relative}.hero .subtitle{font-size:1.1rem;font-weight:300;opacity:.85;position:relative;max-width:650px;margin:0 auto}
+    .container{max-width:1100px;margin:0 auto;padding:2rem 1.5rem 4rem}.intro-note{font-family:'Crimson Pro',serif;font-size:1.15rem;line-height:1.8;color:var(--text-muted);max-width:800px;margin:0 auto 3rem;text-align:center;padding:0 1rem}
+    .toc{background:var(--bg-card);border:1px solid var(--border);border-radius:8px;padding:1.5rem 2rem;margin-bottom:3rem;box-shadow:var(--shadow)}.toc h2{font-family:'Crimson Pro',serif;font-size:1.2rem;font-weight:600;color:var(--accent);margin-bottom:1rem;text-transform:uppercase;letter-spacing:.08em}.toc-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:.4rem 2rem}.toc a{color:var(--text);text-decoration:none;font-size:.95rem;padding:.25rem 0;display:block;border-bottom:1px solid transparent;transition:all .2s}.toc a:hover{color:var(--accent);border-bottom-color:var(--accent)}.toc a .num{color:var(--accent);font-family:'JetBrains Mono',monospace;font-size:.8rem;margin-right:.5rem}
+    .section{margin-bottom:3rem}.section-header{display:flex;align-items:center;gap:.75rem;margin-bottom:1.5rem;padding-bottom:.75rem;border-bottom:2px solid var(--accent)}.section-number{font-family:'JetBrains Mono',monospace;font-size:.8rem;color:#fff;background:var(--accent);width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0}.section-header h2{font-family:'Crimson Pro',serif;font-size:1.6rem;font-weight:600;color:var(--text)}
+    .card-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:1rem}.card{background:var(--bg-card);border:1px solid var(--border);border-radius:6px;padding:1.25rem 1.5rem;box-shadow:var(--shadow);transition:box-shadow .2s,transform .2s}.card:hover{box-shadow:var(--shadow-hover);transform:translateY(-1px)}.card h3{font-family:'Crimson Pro',serif;font-size:1.1rem;font-weight:600;color:var(--accent);margin-bottom:.6rem}.card p,.card li{font-size:.93rem;line-height:1.65}.card ul{list-style:none;padding:0}.card ul li{padding:.2rem 0;padding-left:1rem;position:relative}.card ul li::before{content:'·';position:absolute;left:0;color:var(--accent);font-weight:700}
+    .fact-table{width:100%;border-collapse:collapse;background:var(--bg-card);border:1px solid var(--border);border-radius:6px;overflow:hidden;box-shadow:var(--shadow);margin-bottom:1rem}.fact-table th{background:var(--accent-light);font-family:'Crimson Pro',serif;font-weight:600;font-size:.9rem;text-align:left;padding:.6rem 1rem;color:var(--accent);text-transform:uppercase;letter-spacing:.05em}.fact-table td{padding:.5rem 1rem;font-size:.93rem;border-top:1px solid var(--border-light)}.fact-table tr:hover td{background:#fdfcfa}
+    .formula{font-family:'JetBrains Mono',monospace;background:var(--accent-light);padding:.15rem .5rem;border-radius:3px;font-size:.88rem;color:var(--accent);white-space:nowrap}.constant{font-family:'JetBrains Mono',monospace;font-size:.9rem;color:var(--accent-warm)}.mnemonic{background:var(--highlight);border-left:3px solid #d4a843;padding:.6rem 1rem;margin:.5rem 0;border-radius:0 4px 4px 0;font-size:.9rem;font-style:italic}
+    .card-full{grid-column:1/-1}.two-col-list{display:grid;grid-template-columns:1fr 1fr;gap:0 2rem}.footer{text-align:center;padding:2rem;color:var(--text-muted);font-size:.85rem;border-top:1px solid var(--border);margin-top:2rem}
+    @media(max-width:700px){.card-grid{grid-template-columns:1fr}.two-col-list{grid-template-columns:1fr}.toc-grid{grid-template-columns:1fr}.hero{padding:3rem 1.5rem 2.5rem}.flashcard-grid{grid-template-columns:1fr}}
+    .quiz-question{background:var(--bg-card);border:1px solid var(--border);border-radius:6px;padding:1.25rem 1.5rem;box-shadow:var(--shadow);margin-bottom:1rem}.quiz-question p.q-text{font-family:'Crimson Pro',serif;font-size:1.05rem;font-weight:500;margin-bottom:.75rem;color:var(--text)}.quiz-question .q-number{font-family:'JetBrains Mono',monospace;font-size:.75rem;color:var(--accent);text-transform:uppercase;letter-spacing:.05em;margin-bottom:.3rem}.quiz-options{list-style:none;padding:0}.quiz-options li{margin-bottom:.35rem}.quiz-options label{display:flex;align-items:flex-start;gap:.6rem;padding:.5rem .75rem;border-radius:5px;cursor:pointer;font-size:.93rem;line-height:1.5;transition:background .15s;border:1px solid transparent}.quiz-options label:hover{background:var(--accent-light)}.quiz-options input[type="radio"]{margin-top:.25rem;accent-color:var(--accent);flex-shrink:0}.quiz-options label.correct{background:#e6f4ea;border-color:#34a853;color:#1a7431}.quiz-options label.incorrect{background:#fce8e6;border-color:#ea4335;color:#a8281e}.quiz-options label.reveal-correct{background:#e6f4ea;border-color:#34a853}.quiz-feedback{margin-top:.6rem;padding:.5rem .75rem;border-radius:4px;font-size:.88rem;line-height:1.5;display:none}.quiz-feedback.show{display:block}.quiz-feedback.correct-fb{background:#e6f4ea;color:#1a7431;border-left:3px solid #34a853}.quiz-feedback.incorrect-fb{background:#fce8e6;color:#a8281e;border-left:3px solid #ea4335}
+    .quiz-controls{display:flex;gap:1rem;margin-top:1.5rem;flex-wrap:wrap}.quiz-btn{font-family:'Source Sans 3',sans-serif;font-size:.95rem;font-weight:500;padding:.6rem 1.5rem;border-radius:5px;border:none;cursor:pointer;transition:all .2s}.quiz-btn-primary{background:var(--accent);color:#fff}.quiz-btn-primary:hover{background:#5e2d22}.quiz-btn-secondary{background:var(--bg);color:var(--text);border:1px solid var(--border)}.quiz-btn-secondary:hover{background:var(--border-light)}.quiz-score{background:var(--accent-light);border:1px solid var(--accent);border-radius:6px;padding:1rem 1.5rem;margin-top:1rem;display:none;text-align:center}.quiz-score .score-number{font-family:'Crimson Pro',serif;font-size:2.5rem;font-weight:700;color:var(--accent)}.quiz-score .score-label{font-size:.9rem;color:var(--text-muted)}
+    .flashcard-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1rem}.flashcard{perspective:800px;height:220px;cursor:pointer}.flashcard-inner{position:relative;width:100%;height:100%;transition:transform .5s ease;transform-style:preserve-3d}.flashcard.flipped .flashcard-inner{transform:rotateY(180deg)}.flashcard-front,.flashcard-back{position:absolute;width:100%;height:100%;backface-visibility:hidden;border-radius:6px;border:1px solid var(--border);box-shadow:var(--shadow);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:1.25rem;text-align:center}.flashcard-front{background:var(--bg-card)}.flashcard-front .fc-label{font-family:'JetBrains Mono',monospace;font-size:.65rem;text-transform:uppercase;letter-spacing:.1em;color:var(--accent);margin-bottom:.75rem}.flashcard-front .fc-question{font-family:'Crimson Pro',serif;font-size:1.1rem;font-weight:500;color:var(--text);line-height:1.5}.flashcard-front .fc-hint{font-size:.78rem;color:var(--text-muted);margin-top:auto;padding-top:.5rem}.flashcard-back{background:var(--accent);color:#fff;transform:rotateY(180deg)}.flashcard-back .fc-label{font-family:'JetBrains Mono',monospace;font-size:.65rem;text-transform:uppercase;letter-spacing:.1em;opacity:.7;margin-bottom:.75rem}.flashcard-back .fc-answer{font-size:1rem;line-height:1.6;font-weight:400}.flashcard:hover .flashcard-inner{box-shadow:var(--shadow-hover)}
+    .fc-category-filter{display:flex;flex-wrap:wrap;gap:.5rem;margin-bottom:1.5rem}.fc-filter-btn{font-family:'Source Sans 3',sans-serif;font-size:.85rem;padding:.35rem .9rem;border-radius:20px;border:1px solid var(--border);background:var(--bg-card);color:var(--text-muted);cursor:pointer;transition:all .2s}.fc-filter-btn:hover{border-color:var(--accent);color:var(--accent)}.fc-filter-btn.active{background:var(--accent);color:#fff;border-color:var(--accent)}
+    .sa-question{background:var(--bg-card);border:1px solid var(--border);border-radius:6px;padding:1.25rem 1.5rem;box-shadow:var(--shadow);margin-bottom:1rem}.sa-question .q-number{font-family:'JetBrains Mono',monospace;font-size:.75rem;color:var(--accent);text-transform:uppercase;letter-spacing:.05em;margin-bottom:.3rem}.sa-question p.q-text{font-family:'Crimson Pro',serif;font-size:1.05rem;font-weight:500;margin-bottom:.75rem;color:var(--text)}.sa-textarea{width:100%;min-height:70px;padding:.6rem .75rem;border:1px solid var(--border);border-radius:5px;font-family:'Source Sans 3',sans-serif;font-size:.93rem;line-height:1.5;resize:vertical;background:var(--bg)}.sa-textarea:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 2px rgba(122,59,46,.15)}.sa-submit-btn{margin-top:.6rem;font-family:'Source Sans 3',sans-serif;font-size:.88rem;font-weight:500;padding:.45rem 1.2rem;border-radius:5px;border:1px solid var(--accent);background:#fff;color:var(--accent);cursor:pointer;transition:all .2s}.sa-submit-btn:hover{background:var(--accent);color:#fff}.sa-submit-btn:disabled{opacity:.5;cursor:not-allowed}.sa-feedback{margin-top:.6rem;padding:.6rem .75rem;border-radius:4px;font-size:.9rem;line-height:1.55;display:none}.sa-feedback.show{display:block}.sa-feedback.grade-good{background:#e6f4ea;color:#1a7431;border-left:3px solid #34a853}.sa-feedback.grade-partial{background:#fef7e0;color:#7a6215;border-left:3px solid #f9ab00}.sa-feedback.grade-needs-work{background:#fce8e6;color:#a8281e;border-left:3px solid #ea4335}.sa-loading{display:inline-flex;align-items:center;gap:.4rem;font-size:.88rem;color:var(--text-muted);margin-top:.5rem}.sa-loading .spinner{width:14px;height:14px;border:2px solid var(--border);border-top-color:var(--accent);border-radius:50%;animation:spin .7s linear infinite}@keyframes spin{to{transform:rotate(360deg)}}.sa-note{font-size:.82rem;color:var(--text-muted);font-style:italic;margin-top:1.5rem;padding:.75rem;background:var(--border-light);border-radius:4px}
+  </style>
+</head>
+<body>
+<div class="hero"><h1>General Chemistry I Fundamentals</h1><p class="subtitle">Atomic structure, stoichiometry, bonding, gases, thermochemistry, and solutions. The essentials.</p></div>
+<div class="container">
+  <p class="intro-note">These are the core facts, formulas, constants, and concepts for General Chemistry I. If you know everything on this page, you know the fundamentals.</p>
+  <div class="toc"><h2>Contents</h2><div class="toc-grid">
+    <a href="#s1"><span class="num">01</span> Measurement &amp; Matter</a>
+    <a href="#s2"><span class="num">02</span> Atomic Theory &amp; Structure</a>
+    <a href="#s3"><span class="num">03</span> Electron Configuration &amp; Periodicity</a>
+    <a href="#s4"><span class="num">04</span> Chemical Bonding</a>
+    <a href="#s5"><span class="num">05</span> Nomenclature</a>
+    <a href="#s6"><span class="num">06</span> Stoichiometry</a>
+    <a href="#s7"><span class="num">07</span> Gases</a>
+    <a href="#s8"><span class="num">08</span> Thermochemistry</a>
+    <a href="#s9"><span class="num">09</span> Solutions</a>
+    <a href="#s10"><span class="num">10</span> Key Constants &amp; Formulas</a>
+    <a href="#s11"><span class="num">11</span> Self-Test Quiz</a>
+    <a href="#s12"><span class="num">12</span> Flashcards</a>
+    <a href="#s13"><span class="num">13</span> Short Answer Practice</a>
+  </div></div>
+
+  <!-- S1: MEASUREMENT -->
+  <div class="section" id="s1"><div class="section-header"><span class="section-number">1</span><h2>Measurement &amp; Matter</h2></div>
+  <div class="card-grid">
+    <div class="card"><h3>SI Base Units</h3>
+      <table class="fact-table"><tr><th>Quantity</th><th>Unit</th><th>Symbol</th></tr><tr><td>Length</td><td>meter</td><td>m</td></tr><tr><td>Mass</td><td>kilogram</td><td>kg</td></tr><tr><td>Time</td><td>second</td><td>s</td></tr><tr><td>Temperature</td><td>kelvin</td><td>K</td></tr><tr><td>Amount</td><td>mole</td><td>mol</td></tr></table></div>
+    <div class="card"><h3>Temperature Conversions</h3>
+      <p><span class="formula">K = °C + 273.15</span></p>
+      <p><span class="formula">°C = (°F - 32) × 5/9</span></p>
+      <p style="margin-top:.5rem">Water freezes: <strong>0°C = 273.15 K = 32°F</strong></p>
+      <p>Water boils: <strong>100°C = 373.15 K = 212°F</strong></p>
+      <p>Absolute zero: <strong>0 K = -273.15°C</strong></p></div>
+    <div class="card"><h3>Significant Figures</h3><ul>
+      <li>All nonzero digits are significant</li>
+      <li>Zeros between nonzero digits are significant (101 = 3 sig figs)</li>
+      <li>Leading zeros are NOT significant (0.0045 = 2 sig figs)</li>
+      <li>Trailing zeros after a decimal ARE significant (2.50 = 3 sig figs)</li>
+      <li><strong>Multiply/divide</strong>: answer has fewest sig figs</li>
+      <li><strong>Add/subtract</strong>: answer has fewest decimal places</li></ul></div>
+    <div class="card"><h3>Classification of Matter</h3><ul>
+      <li><strong>Pure substance</strong>: fixed composition. Either an <strong>element</strong> or a <strong>compound</strong></li>
+      <li><strong>Mixture</strong>: two+ substances physically combined. <strong>Homogeneous</strong> (uniform, like saltwater) or <strong>heterogeneous</strong> (non-uniform, like sand in water)</li>
+      <li><strong>Physical change</strong>: no new substances (melting, boiling)</li>
+      <li><strong>Chemical change</strong>: new substances formed (rusting, combustion)</li></ul></div>
+    <div class="card"><h3>Density &amp; Metric Prefixes</h3>
+      <p><span class="formula">d = m / V</span> &nbsp; Density of water: <strong>1.00 g/mL</strong></p>
+      <table class="fact-table" style="margin-top:.5rem"><tr><th>Prefix</th><th>Symbol</th><th>Factor</th></tr><tr><td>kilo-</td><td>k</td><td>10³</td></tr><tr><td>centi-</td><td>c</td><td>10⁻²</td></tr><tr><td>milli-</td><td>m</td><td>10⁻³</td></tr><tr><td>micro-</td><td>µ</td><td>10⁻⁶</td></tr><tr><td>nano-</td><td>n</td><td>10⁻⁹</td></tr></table></div>
+  </div></div>
+
+  <!-- S2: ATOMIC THEORY -->
+  <div class="section" id="s2"><div class="section-header"><span class="section-number">2</span><h2>Atomic Theory &amp; Structure</h2></div>
+  <div class="card-grid">
+    <div class="card"><h3>Subatomic Particles</h3>
+      <table class="fact-table"><tr><th>Particle</th><th>Charge</th><th>Mass (amu)</th><th>Location</th></tr><tr><td>Proton</td><td>+1</td><td>~1</td><td>Nucleus</td></tr><tr><td>Neutron</td><td>0</td><td>~1</td><td>Nucleus</td></tr><tr><td>Electron</td><td>-1</td><td>~0 (1/1836)</td><td>Electron cloud</td></tr></table>
+      <ul style="margin-top:.4rem"><li><strong>Atomic number (Z)</strong> = protons = defines the element</li><li><strong>Mass number (A)</strong> = protons + neutrons</li><li><strong>Isotopes</strong>: same element, different neutrons</li></ul></div>
+    <div class="card"><h3>Ions</h3><ul>
+      <li><strong>Cation</strong> (+): lost electrons. Metals form cations.</li>
+      <li><strong>Anion</strong> (-): gained electrons. Nonmetals form anions.</li>
+      <li>Charge = protons - electrons</li></ul>
+      <div class="mnemonic">"Cation" has a "t" like a plus sign (+)</div></div>
+    <div class="card"><h3>Atomic Mass &amp; Isotopes</h3><ul>
+      <li>Atomic mass on periodic table = <strong>weighted average</strong> of all naturally occurring isotopes</li>
+      <li><span class="formula">Avg mass = Σ(mass × fractional abundance)</span></li>
+      <li>1 amu = 1/12 the mass of carbon-12</li></ul></div>
+    <div class="card"><h3>Atomic Model History</h3><ul>
+      <li><strong>Dalton</strong>: atoms are indivisible spheres</li>
+      <li><strong>Thomson</strong>: "plum pudding" (discovered electron)</li>
+      <li><strong>Rutherford</strong>: gold foil experiment, discovered small dense nucleus</li>
+      <li><strong>Bohr</strong>: electrons in fixed energy levels</li>
+      <li><strong>Quantum model</strong>: electrons in probability clouds (orbitals)</li></ul></div>
+  </div></div>
+
+  <!-- S3: ELECTRON CONFIG -->
+  <div class="section" id="s3"><div class="section-header"><span class="section-number">3</span><h2>Electron Configuration &amp; Periodicity</h2></div>
+  <div class="card-grid">
+    <div class="card"><h3>Quantum Numbers</h3><ul>
+      <li><strong>n</strong> (principal): energy level (1, 2, 3...). Higher = farther, higher energy.</li>
+      <li><strong>l</strong> (angular momentum): shape (0=s, 1=p, 2=d, 3=f)</li>
+      <li><strong>m<sub>l</sub></strong> (magnetic): orientation (-l to +l)</li>
+      <li><strong>m<sub>s</sub></strong> (spin): +½ or -½</li></ul></div>
+    <div class="card"><h3>Orbital Shapes &amp; Capacities</h3>
+      <table class="fact-table"><tr><th>Subshell</th><th>Shape</th><th># Orbitals</th><th>Max e⁻</th></tr><tr><td>s</td><td>Spherical</td><td>1</td><td>2</td></tr><tr><td>p</td><td>Dumbbell</td><td>3</td><td>6</td></tr><tr><td>d</td><td>Cloverleaf</td><td>5</td><td>10</td></tr><tr><td>f</td><td>Complex</td><td>7</td><td>14</td></tr></table></div>
+    <div class="card"><h3>Filling Rules</h3><ul>
+      <li><strong>Aufbau</strong>: fill lowest energy first</li>
+      <li><strong>Pauli exclusion</strong>: max 2 e⁻ per orbital, opposite spins</li>
+      <li><strong>Hund's rule</strong>: fill orbitals of equal energy singly first, then pair</li></ul>
+      <div class="mnemonic">Order: 1s 2s 2p 3s 3p 4s 3d 4p 5s 4d 5p 6s 4f 5d 6p</div></div>
+    <div class="card"><h3>Electron Configuration</h3><ul>
+      <li>Full notation: <span class="formula">1s² 2s² 2p⁶ 3s² 3p⁶</span> (for Ar)</li>
+      <li>Noble gas shorthand: <span class="formula">[Ne] 3s² 3p⁵</span> (for Cl)</li>
+      <li><strong>Valence electrons</strong> = outermost shell electrons. Determine chemical behavior.</li>
+      <li>Group 1A = 1 val e⁻, Group 2A = 2, ..., Group 7A = 7, Group 8A = 8</li></ul></div>
+    <div class="card card-full"><h3>Periodic Trends</h3>
+      <table class="fact-table"><tr><th>Property</th><th>Across Period (L → R)</th><th>Down Group (T → B)</th><th>Why</th></tr>
+      <tr><td>Atomic radius</td><td>Decreases</td><td>Increases</td><td>More protons pull e⁻ closer across; more shells added down</td></tr>
+      <tr><td>Ionization energy</td><td>Increases</td><td>Decreases</td><td>Harder to remove e⁻ when nucleus pulls tighter</td></tr>
+      <tr><td>Electronegativity</td><td>Increases</td><td>Decreases</td><td>Stronger attraction for bonding e⁻ (F is highest)</td></tr>
+      <tr><td>Metallic character</td><td>Decreases</td><td>Increases</td><td>Metals lose e⁻ easily; easier with larger atoms</td></tr></table></div>
+  </div></div>
+
+  <!-- S4: BONDING -->
+  <div class="section" id="s4"><div class="section-header"><span class="section-number">4</span><h2>Chemical Bonding</h2></div>
+  <div class="card-grid">
+    <div class="card"><h3>Bond Types</h3><ul>
+      <li><strong>Ionic</strong>: electron transfer (metal + nonmetal). EN difference > 1.7. Crystal lattice, high melting point, conducts when dissolved.</li>
+      <li><strong>Covalent</strong>: electron sharing (nonmetal + nonmetal). Polar if EN diff 0.4-1.7; nonpolar if < 0.4.</li>
+      <li><strong>Metallic</strong>: "sea of electrons." Conducts, malleable, ductile.</li></ul></div>
+    <div class="card"><h3>Lewis Structures</h3><ul>
+      <li>Count total valence electrons</li>
+      <li>Least electronegative atom in center (H always terminal)</li>
+      <li>Connect with single bonds, complete octets on outer atoms first</li>
+      <li>If central atom needs more, make double/triple bonds</li>
+      <li><strong>Octet rule</strong>: atoms want 8 valence e⁻ (H wants 2)</li>
+      <li>Exceptions: B/Be (incomplete), period 3+ (expanded)</li></ul></div>
+    <div class="card"><h3>VSEPR Geometries</h3>
+      <table class="fact-table"><tr><th>E-Groups</th><th>Bonds/Lone</th><th>Shape</th><th>Angle</th></tr>
+      <tr><td>2</td><td>2/0</td><td>Linear</td><td>180°</td></tr>
+      <tr><td>3</td><td>3/0</td><td>Trigonal planar</td><td>120°</td></tr>
+      <tr><td>3</td><td>2/1</td><td>Bent</td><td><120°</td></tr>
+      <tr><td>4</td><td>4/0</td><td>Tetrahedral</td><td>109.5°</td></tr>
+      <tr><td>4</td><td>3/1</td><td>Trigonal pyramidal</td><td><109.5°</td></tr>
+      <tr><td>4</td><td>2/2</td><td>Bent</td><td><109.5°</td></tr></table>
+      <p style="margin-top:.4rem">Lone pairs compress bond angles.</p></div>
+    <div class="card"><h3>Polarity &amp; IMFs</h3><ul>
+      <li>Polar molecule = polar bonds + asymmetric shape (dipoles don't cancel)</li>
+      <li>Symmetric molecules can be nonpolar despite polar bonds (CO₂, CH₄)</li></ul>
+      <p style="margin-top:.5rem"><strong>Intermolecular forces (weakest to strongest):</strong></p><ul>
+      <li><strong>London dispersion</strong>: all molecules. Stronger with more electrons.</li>
+      <li><strong>Dipole-dipole</strong>: polar molecules</li>
+      <li><strong>Hydrogen bonding</strong>: H bonded to <strong>F, O, or N</strong></li></ul>
+      <p style="margin-top:.4rem">Stronger IMFs = higher boiling point</p></div>
+  </div></div>
+
+  <!-- S5: NOMENCLATURE -->
+  <div class="section" id="s5"><div class="section-header"><span class="section-number">5</span><h2>Nomenclature</h2></div>
+  <div class="card-grid">
+    <div class="card"><h3>Ionic Compounds</h3><ul>
+      <li>Metal + nonmetal: cation name + anion with <strong>-ide</strong>. NaCl = sodium chloride</li>
+      <li>Transition metals: use Roman numerals. FeCl₃ = iron(III) chloride</li></ul></div>
+    <div class="card"><h3>Common Polyatomic Ions</h3>
+      <table class="fact-table"><tr><th>Formula</th><th>Name</th></tr>
+      <tr><td>NH₄⁺</td><td>Ammonium</td></tr><tr><td>NO₃⁻</td><td>Nitrate</td></tr><tr><td>SO₄²⁻</td><td>Sulfate</td></tr><tr><td>PO₄³⁻</td><td>Phosphate</td></tr><tr><td>CO₃²⁻</td><td>Carbonate</td></tr><tr><td>OH⁻</td><td>Hydroxide</td></tr><tr><td>ClO₃⁻</td><td>Chlorate</td></tr><tr><td>C₂H₃O₂⁻</td><td>Acetate</td></tr><tr><td>HCO₃⁻</td><td>Bicarbonate</td></tr><tr><td>MnO₄⁻</td><td>Permanganate</td></tr><tr><td>CN⁻</td><td>Cyanide</td></tr><tr><td>CrO₄²⁻</td><td>Chromate</td></tr></table></div>
+    <div class="card"><h3>Covalent Compounds</h3><ul>
+      <li>Nonmetal + nonmetal: use <strong>prefixes</strong> (mono, di, tri, tetra, penta, hexa)</li>
+      <li>No "mono" on first element. Second element gets -ide.</li>
+      <li>CO₂ = carbon dioxide. N₂O₅ = dinitrogen pentoxide</li></ul></div>
+    <div class="card"><h3>Acids</h3><ul>
+      <li><strong>Binary acids</strong> (no O): hydro___ic acid. HCl = hydrochloric acid</li>
+      <li>From <strong>-ate</strong> ion: ___ic acid. HNO₃ = nitric acid</li>
+      <li>From <strong>-ite</strong> ion: ___ous acid. HNO₂ = nitrous acid</li></ul></div>
+  </div></div>
+
+  <!-- S6: STOICH -->
+  <div class="section" id="s6"><div class="section-header"><span class="section-number">6</span><h2>Stoichiometry</h2></div>
+  <div class="card-grid">
+    <div class="card"><h3>The Mole</h3><ul>
+      <li><strong>Avogadro's number</strong>: <span class="constant">6.022 × 10²³</span> particles/mol</li>
+      <li>1 mol of any element = its atomic mass in grams (molar mass)</li>
+      <li><span class="formula">moles = mass (g) / molar mass (g/mol)</span></li>
+      <li><span class="formula"># particles = moles × 6.022 × 10²³</span></li></ul></div>
+    <div class="card"><h3>Balancing &amp; Reaction Types</h3><ul>
+      <li><strong>Conservation of Mass</strong>: atoms in = atoms out. Adjust coefficients only.</li>
+      <li><strong>Combination</strong>: A + B → AB</li>
+      <li><strong>Decomposition</strong>: AB → A + B</li>
+      <li><strong>Single replacement</strong>: A + BC → AC + B</li>
+      <li><strong>Double replacement</strong>: AB + CD → AD + CB</li>
+      <li><strong>Combustion</strong>: fuel + O₂ → CO₂ + H₂O</li></ul></div>
+    <div class="card"><h3>Stoichiometry Roadmap</h3>
+      <p style="text-align:center;font-weight:600;margin-bottom:.5rem">grams A → moles A → moles B → grams B</p><ul>
+      <li>Convert grams to moles (÷ molar mass)</li>
+      <li>Use <strong>mole ratio</strong> from balanced equation</li>
+      <li>Convert moles to grams (× molar mass)</li></ul></div>
+    <div class="card"><h3>Limiting Reagent &amp; Yield</h3><ul>
+      <li><strong>Limiting reagent</strong>: runs out first, determines product amount</li>
+      <li><strong>Excess reagent</strong>: leftover</li>
+      <li><span class="formula">% yield = (actual / theoretical) × 100</span></li></ul></div>
+    <div class="card"><h3>Empirical &amp; Molecular Formulas</h3><ul>
+      <li><strong>Empirical</strong>: simplest whole-number ratio (CH₂O)</li>
+      <li><strong>Molecular</strong>: actual atoms (C₆H₁₂O₆)</li>
+      <li>Molecular = empirical × n, where n = molar mass / empirical mass</li>
+      <li><span class="formula">% composition = (mass of element in 1 mol / molar mass) × 100</span></li></ul></div>
+  </div></div>
+
+  <!-- S7: GASES -->
+  <div class="section" id="s7"><div class="section-header"><span class="section-number">7</span><h2>Gases</h2></div>
+  <div class="card-grid">
+    <div class="card"><h3>Gas Laws</h3>
+      <table class="fact-table"><tr><th>Law</th><th>Relationship</th><th>Formula</th></tr>
+      <tr><td>Boyle's</td><td>P ↔ V (const T,n)</td><td>P₁V₁ = P₂V₂</td></tr>
+      <tr><td>Charles's</td><td>V ↔ T (const P,n)</td><td>V₁/T₁ = V₂/T₂</td></tr>
+      <tr><td>Gay-Lussac's</td><td>P ↔ T (const V,n)</td><td>P₁/T₁ = P₂/T₂</td></tr>
+      <tr><td>Avogadro's</td><td>V ↔ n (const T,P)</td><td>V₁/n₁ = V₂/n₂</td></tr>
+      <tr><td>Combined</td><td>P, V, T</td><td>P₁V₁/T₁ = P₂V₂/T₂</td></tr></table>
+      <p style="margin-top:.4rem"><strong>T must be in Kelvin for all gas law calculations!</strong></p></div>
+    <div class="card"><h3>Ideal Gas Law</h3>
+      <p><span class="formula">PV = nRT</span></p><ul style="margin-top:.4rem">
+      <li>R = <span class="constant">0.0821 L·atm/mol·K</span></li>
+      <li><strong>STP</strong>: 0°C (273.15 K), 1 atm</li>
+      <li>At STP: 1 mol gas = <strong>22.4 L</strong></li></ul></div>
+    <div class="card"><h3>Dalton's Law &amp; Pressure</h3><ul>
+      <li><span class="formula">P_total = P₁ + P₂ + P₃ + ...</span></li>
+      <li><strong>1 atm = 760 mmHg = 760 torr = 101.325 kPa</strong></li></ul></div>
+    <div class="card"><h3>Kinetic Molecular Theory</h3><ul>
+      <li>Gas particles in constant random motion</li>
+      <li>Volume of particles is negligible</li>
+      <li>No attractive forces between particles</li>
+      <li>Elastic collisions</li>
+      <li>KE proportional to temperature (K)</li>
+      <li>Lighter gases move faster at same T</li></ul></div>
+  </div></div>
+
+  <!-- S8: THERMO -->
+  <div class="section" id="s8"><div class="section-header"><span class="section-number">8</span><h2>Thermochemistry</h2></div>
+  <div class="card-grid">
+    <div class="card"><h3>Energy Basics</h3><ul>
+      <li><strong>Exothermic</strong>: releases heat. ΔH < 0. Feels hot.</li>
+      <li><strong>Endothermic</strong>: absorbs heat. ΔH > 0. Feels cold.</li>
+      <li>q_system = -q_surroundings</li></ul></div>
+    <div class="card"><h3>Heat Calculations</h3>
+      <p><span class="formula">q = mcΔT</span></p><ul style="margin-top:.4rem">
+      <li>q = heat (J), m = mass (g), c = specific heat (J/g·°C), ΔT = T_final - T_initial</li>
+      <li>Specific heat of water: <span class="constant">4.184 J/g·°C</span></li></ul></div>
+    <div class="card"><h3>Hess's Law &amp; Enthalpy</h3><ul>
+      <li><strong>Hess's Law</strong>: ΔH is the same regardless of path</li>
+      <li><span class="formula">ΔH°rxn = ΣΔH°f(products) - ΣΔH°f(reactants)</span></li>
+      <li>ΔH°f of any element in its standard state = 0</li></ul></div>
+    <div class="card"><h3>Calorimetry</h3><ul>
+      <li>q_rxn = -q_water = -(mc ΔT) of water</li>
+      <li>Heat lost = heat gained (no heat loss to surroundings)</li></ul></div>
+  </div></div>
+
+  <!-- S9: SOLUTIONS -->
+  <div class="section" id="s9"><div class="section-header"><span class="section-number">9</span><h2>Solutions</h2></div>
+  <div class="card-grid">
+    <div class="card"><h3>Molarity &amp; Dilution</h3>
+      <p><span class="formula">M = moles solute / liters solution</span></p>
+      <p><span class="formula">M₁V₁ = M₂V₂</span> (dilution)</p><ul style="margin-top:.4rem">
+      <li>Moles of solute stay the same during dilution</li>
+      <li><span class="formula">moles = M × V(L)</span></li></ul></div>
+    <div class="card"><h3>Solubility &amp; Electrolytes</h3><ul>
+      <li><strong>"Like dissolves like"</strong>: polar dissolves polar/ionic; nonpolar dissolves nonpolar</li>
+      <li><strong>Strong electrolyte</strong>: dissociates completely (NaCl, HCl, NaOH)</li>
+      <li><strong>Weak electrolyte</strong>: dissociates partially (CH₃COOH, NH₃)</li>
+      <li><strong>Nonelectrolyte</strong>: no ions (sugar, ethanol)</li></ul></div>
+  </div></div>
+
+  <!-- S10: CONSTANTS -->
+  <div class="section" id="s10"><div class="section-header"><span class="section-number">10</span><h2>Key Constants &amp; Formulas</h2></div>
+  <div class="card-grid">
+    <div class="card card-full"><h3>Constants</h3>
+      <table class="fact-table"><tr><th>Constant</th><th>Value</th></tr>
+      <tr><td>Avogadro's number</td><td><span class="constant">6.022 × 10²³ /mol</span></td></tr>
+      <tr><td>Gas constant R</td><td><span class="constant">0.0821 L·atm/mol·K</span> (or 8.314 J/mol·K)</td></tr>
+      <tr><td>STP</td><td><span class="constant">0°C (273.15 K), 1 atm</span></td></tr>
+      <tr><td>Molar volume at STP</td><td><span class="constant">22.4 L/mol</span></td></tr>
+      <tr><td>Specific heat of water</td><td><span class="constant">4.184 J/g·°C</span></td></tr>
+      <tr><td>1 atm</td><td><span class="constant">760 mmHg = 760 torr = 101.325 kPa</span></td></tr>
+      <tr><td>Density of water</td><td><span class="constant">1.00 g/mL</span></td></tr>
+      <tr><td>Speed of light</td><td><span class="constant">3.00 × 10⁸ m/s</span></td></tr>
+      <tr><td>Planck's constant</td><td><span class="constant">6.626 × 10⁻³⁴ J·s</span></td></tr></table></div>
+    <div class="card card-full"><h3>Essential Formulas</h3>
+      <table class="fact-table"><tr><th>Name</th><th>Formula</th></tr>
+      <tr><td>Density</td><td><span class="formula">d = m/V</span></td></tr>
+      <tr><td>Moles</td><td><span class="formula">n = mass / molar mass</span></td></tr>
+      <tr><td>Ideal gas law</td><td><span class="formula">PV = nRT</span></td></tr>
+      <tr><td>Heat</td><td><span class="formula">q = mcΔT</span></td></tr>
+      <tr><td>Molarity</td><td><span class="formula">M = mol / L</span></td></tr>
+      <tr><td>Dilution</td><td><span class="formula">M₁V₁ = M₂V₂</span></td></tr>
+      <tr><td>% yield</td><td><span class="formula">(actual / theoretical) × 100</span></td></tr>
+      <tr><td>Dalton's law</td><td><span class="formula">P_total = P₁ + P₂ + ...</span></td></tr>
+      <tr><td>Hess's law</td><td><span class="formula">ΔH°rxn = ΣΔH°f(prod) - ΣΔH°f(react)</span></td></tr>
+      <tr><td>Photon energy</td><td><span class="formula">E = hν = hc/λ</span></td></tr>
+      <tr><td>Kelvin</td><td><span class="formula">K = °C + 273.15</span></td></tr></table></div>
+  </div></div>
+
+  <!-- QUIZ -->
+  <div class="section" id="s11"><div class="section-header"><span class="section-number">11</span><h2>Self-Test Quiz</h2></div>
+  <p style="margin-bottom:1.5rem;color:var(--text-muted)">Select an answer, then check your score.</p>
+  <div id="quiz-container"></div>
+  <div class="quiz-controls"><button class="quiz-btn quiz-btn-primary" onclick="checkQuiz()">Check My Answers</button><button class="quiz-btn quiz-btn-secondary" onclick="resetQuiz()">Reset Quiz</button></div>
+  <div class="quiz-score" id="quiz-score"><div class="score-number" id="score-number"></div><div class="score-label" id="score-label"></div></div></div>
+
+  <!-- FLASHCARDS -->
+  <div class="section" id="s12"><div class="section-header"><span class="section-number">12</span><h2>Flashcards</h2></div>
+  <p style="margin-bottom:1rem;color:var(--text-muted)">Click to flip. Filter by topic.</p>
+  <div class="fc-category-filter" id="fc-filters"></div>
+  <div class="flashcard-grid" id="flashcard-container"></div></div>
+
+  <!-- SHORT ANSWER -->
+  <div class="section" id="s13"><div class="section-header"><span class="section-number">13</span><h2>Short Answer Practice</h2></div>
+  <p style="margin-bottom:1.5rem;color:var(--text-muted)">Type your answer, then click "Grade My Answer."</p>
+  <div id="sa-container"></div>
+  <div class="sa-note">Answers graded by checking for key concepts. A model answer is shown after grading.</div></div>
+
+  <div class="footer"><p>General Chemistry I Fundamentals Reference</p><p style="margin-top:.3rem">Compiled as a study resource for undergraduate chemistry students.</p></div>
+</div>
+
+<script>
+const quizData=[
+{q:"How many significant figures in 0.00340?",opts:["2","3","4","5"],ans:1,explain:"Leading zeros not significant. 3, 4, and trailing 0 after decimal are significant = 3.",cat:"Measurement"},
+{q:"An atom with 11 protons, 12 neutrons, and 10 electrons has:",opts:["Charge -1, mass number 23","Charge +1, mass number 23","Charge +1, mass number 21","No charge, mass number 23"],ans:1,explain:"Charge = 11p - 10e = +1. Mass number = 11+12 = 23. This is Na+.",cat:"Atomic Structure"},
+{q:"Isotopes differ in their number of:",opts:["Protons","Electrons","Neutrons","Valence electrons"],ans:2,explain:"Isotopes: same protons (same element), different neutrons.",cat:"Atomic Structure"},
+{q:"The electron configuration for oxygen (Z=8) is:",opts:["1s2 2s2 2p2","1s2 2s2 2p4","1s2 2s2 2p6","1s2 2s2 3p4"],ans:1,explain:"O has 8 electrons: 1s2 2s2 2p4.",cat:"Electron Config"},
+{q:"Across a period (left to right), atomic radius:",opts:["Increases","Decreases","Stays the same","Varies randomly"],ans:1,explain:"More protons pull electrons closer without adding shells, so radius decreases.",cat:"Periodicity"},
+{q:"The most electronegative element is:",opts:["Oxygen","Chlorine","Fluorine","Nitrogen"],ans:2,explain:"Fluorine has the highest electronegativity of any element.",cat:"Periodicity"},
+{q:"An ionic bond forms between:",opts:["Two nonmetals","Two metals","A metal and a nonmetal","Two noble gases"],ans:2,explain:"Ionic bonds form by electron transfer between a metal (loses e-) and nonmetal (gains e-).",cat:"Bonding"},
+{q:"What is the molecular geometry of water (H2O)?",opts:["Linear","Trigonal planar","Tetrahedral","Bent"],ans:3,explain:"Water has 4 electron groups (2 bonds + 2 lone pairs) on O, making it bent with ~104.5 degree angle.",cat:"Bonding"},
+{q:"Hydrogen bonding occurs when H is bonded to:",opts:["Any nonmetal","C, N, or O","F, O, or N","Only oxygen"],ans:2,explain:"H-bonding requires H bonded to F, O, or N (the most electronegative small atoms with lone pairs).",cat:"Bonding"},
+{q:"In the name iron(III) chloride, the Roman numeral indicates:",opts:["3 chlorine atoms","The iron has a +3 charge","The compound has 3 bonds","The oxidation state of chlorine"],ans:1,explain:"Roman numerals in ionic compound names indicate the charge of the transition metal cation. Fe3+.",cat:"Nomenclature"},
+{q:"The correct name for N2O5 is:",opts:["Nitrogen oxide","Nitrogen pentoxide","Dinitrogen pentoxide","Nitric oxide"],ans:2,explain:"Covalent naming: di- (2) nitrogen pent- (5) oxide. N2O5 = dinitrogen pentoxide.",cat:"Nomenclature"},
+{q:"How many moles are in 36.04 g of water (H2O, molar mass 18.02 g/mol)?",opts:["0.500 mol","1.00 mol","2.00 mol","18.02 mol"],ans:2,explain:"moles = mass/molar mass = 36.04/18.02 = 2.00 mol.",cat:"Stoichiometry"},
+{q:"In a reaction, the limiting reagent is:",opts:["Always the one with less mass","The reactant that runs out first","The one with the larger coefficient","The product formed in least amount"],ans:1,explain:"The limiting reagent is consumed first and determines maximum product formed.",cat:"Stoichiometry"},
+{q:"The percent yield if actual yield is 15.0 g and theoretical yield is 20.0 g:",opts:["75.0%","133%","25.0%","35.0%"],ans:0,explain:"% yield = (15.0/20.0) x 100 = 75.0%.",cat:"Stoichiometry"},
+{q:"At STP, 1 mole of any ideal gas occupies:",opts:["1.00 L","11.2 L","22.4 L","44.8 L"],ans:2,explain:"At STP (0 C, 1 atm), 1 mole of ideal gas = 22.4 L. This is the molar volume.",cat:"Gases"},
+{q:"If the volume of a gas doubles at constant temperature and moles, the pressure:",opts:["Doubles","Is halved","Stays the same","Quadruples"],ans:1,explain:"Boyle's Law: P1V1 = P2V2. If V doubles, P is halved (inverse relationship).",cat:"Gases"},
+{q:"In the ideal gas law PV = nRT, R equals:",opts:["8.314 g/mol","0.0821 L atm/mol K","22.4 L/mol","6.022 x 10^23"],ans:1,explain:"R = 0.0821 L atm / mol K when using P in atm and V in liters.",cat:"Gases"},
+{q:"1 atm equals:",opts:["100 mmHg","760 mmHg","1000 torr","273 kPa"],ans:1,explain:"1 atm = 760 mmHg = 760 torr = 101.325 kPa.",cat:"Gases"},
+{q:"An exothermic reaction has:",opts:["Positive delta H","Negative delta H","No heat change","Delta H = 0"],ans:1,explain:"Exothermic = releases heat = negative ΔH. The system loses energy to surroundings.",cat:"Thermochemistry"},
+{q:"The specific heat of water is:",opts:["1.00 J/g C","2.09 J/g C","4.184 J/g C","100 J/g C"],ans:2,explain:"Water's specific heat is 4.184 J/g C, one of the highest of common substances.",cat:"Thermochemistry"},
+{q:"Using q = mc delta T, if you heat 100 g of water by 10 C, q equals:",opts:["418.4 J","4,184 J","41,840 J","100 J"],ans:1,explain:"q = (100 g)(4.184 J/g C)(10 C) = 4,184 J.",cat:"Thermochemistry"},
+{q:"Molarity (M) is defined as:",opts:["Grams of solute per liter","Moles of solute per liter of solution","Moles of solute per kg of solvent","Grams per mL"],ans:1,explain:"Molarity = moles of solute / liters of solution. Units: mol/L.",cat:"Solutions"},
+{q:"When diluting a solution, which quantity stays constant?",opts:["Volume","Concentration","Moles of solute","Temperature"],ans:2,explain:"M1V1 = M2V2. Adding solvent changes V and M, but moles of solute remain the same.",cat:"Solutions"},
+{q:"'Like dissolves like' means:",opts:["All substances dissolve in water","Polar solvents dissolve polar/ionic solutes","Acids dissolve bases","Hot solvents dissolve everything"],ans:1,explain:"Polar solvents (water) dissolve polar and ionic substances. Nonpolar solvents dissolve nonpolar substances.",cat:"Solutions"},
+{q:"According to Hund's rule, electrons in orbitals of equal energy will:",opts:["All pair up immediately","Fill singly first with parallel spins","Fill the highest energy orbital first","Have opposite quantum numbers"],ans:1,explain:"Hund's rule: electrons occupy orbitals singly before pairing, all with same spin direction.",cat:"Electron Config"},
+{q:"Which element has the largest atomic radius: Na, Mg, Al, or Cl?",opts:["Na","Mg","Al","Cl"],ans:0,explain:"Atomic radius decreases left to right across a period. Na is farthest left, so it's the largest.",cat:"Periodicity"},
+{q:"Charles's Law relates which two variables?",opts:["Pressure and volume","Volume and temperature","Pressure and temperature","Moles and volume"],ans:1,explain:"Charles's Law: V1/T1 = V2/T2. Volume and temperature are directly proportional at constant P and n.",cat:"Gases"},
+{q:"The standard enthalpy of formation of O2(g) is:",opts:["Unknown","Negative","Positive","Zero"],ans:3,explain:"The standard enthalpy of formation of any element in its standard state is zero by definition.",cat:"Thermochemistry"},
+{q:"A strong electrolyte in water:",opts:["Does not dissociate","Partially dissociates","Completely dissociates into ions","Forms a precipitate"],ans:2,explain:"Strong electrolytes (NaCl, HCl, NaOH) dissociate completely into ions in solution.",cat:"Solutions"},
+{q:"CO2 has polar bonds but is a nonpolar molecule because:",opts:["Carbon is not electronegative","The molecule is linear and dipoles cancel","It has no lone pairs","Oxygen is too electronegative"],ans:1,explain:"CO2 is linear (180 degrees). The two equal C=O dipoles point in opposite directions and cancel out.",cat:"Bonding"}
+];
+
+const flashcardData=[
+{front:"SI unit of mass?",back:"Kilogram (kg)",cat:"Measurement"},
+{front:"Convert Celsius to Kelvin?",back:"K = °C + 273.15",cat:"Measurement"},
+{front:"How many sig figs in 0.00250?",back:"3 (the 2, 5, and trailing 0)",cat:"Measurement"},
+{front:"Density formula?",back:"d = m / V. Water = 1.00 g/mL.",cat:"Measurement"},
+{front:"Proton: charge, mass, location?",back:"+1, ~1 amu, nucleus",cat:"Atomic Structure"},
+{front:"Neutron: charge, mass, location?",back:"0, ~1 amu, nucleus",cat:"Atomic Structure"},
+{front:"Electron: charge, mass, location?",back:"-1, ~0 amu, electron cloud",cat:"Atomic Structure"},
+{front:"What is atomic number (Z)?",back:"Number of protons. Defines the element.",cat:"Atomic Structure"},
+{front:"What is mass number (A)?",back:"Protons + Neutrons",cat:"Atomic Structure"},
+{front:"Cation vs. Anion?",back:"Cation (+): lost e-. Anion (-): gained e-.",cat:"Atomic Structure"},
+{front:"What are isotopes?",back:"Same element (same protons), different number of neutrons.",cat:"Atomic Structure"},
+{front:"Who discovered the nucleus?",back:"Rutherford (gold foil experiment)",cat:"Atomic Structure"},
+{front:"Aufbau principle?",back:"Fill lowest energy orbitals first.",cat:"Electron Config"},
+{front:"Pauli exclusion principle?",back:"Max 2 electrons per orbital, with opposite spins.",cat:"Electron Config"},
+{front:"Hund's rule?",back:"Fill orbitals of equal energy singly first, then pair.",cat:"Electron Config"},
+{front:"s, p, d, f: max electrons?",back:"s=2, p=6, d=10, f=14",cat:"Electron Config"},
+{front:"Orbital filling order?",back:"1s 2s 2p 3s 3p 4s 3d 4p 5s 4d 5p 6s 4f 5d 6p",cat:"Electron Config"},
+{front:"Atomic radius trend across period?",back:"Decreases (more protons, same shell)",cat:"Periodicity"},
+{front:"Atomic radius trend down a group?",back:"Increases (more shells added)",cat:"Periodicity"},
+{front:"Ionization energy trend across?",back:"Increases (harder to remove e- with more protons)",cat:"Periodicity"},
+{front:"Most electronegative element?",back:"Fluorine (F)",cat:"Periodicity"},
+{front:"Ionic bond: what and between whom?",back:"Electron transfer. Metal + nonmetal. EN diff > 1.7.",cat:"Bonding"},
+{front:"Covalent bond: what and between whom?",back:"Electron sharing. Nonmetal + nonmetal.",cat:"Bonding"},
+{front:"Polar vs. nonpolar covalent?",back:"Polar: unequal sharing (EN diff 0.4-1.7). Nonpolar: equal sharing (< 0.4).",cat:"Bonding"},
+{front:"VSEPR: 4 e-groups, 0 lone pairs?",back:"Tetrahedral, 109.5 degrees",cat:"Bonding"},
+{front:"VSEPR: 4 e-groups, 2 lone pairs?",back:"Bent, < 109.5 degrees",cat:"Bonding"},
+{front:"VSEPR: 3 e-groups, 0 lone pairs?",back:"Trigonal planar, 120 degrees",cat:"Bonding"},
+{front:"VSEPR: 2 e-groups, 0 lone pairs?",back:"Linear, 180 degrees",cat:"Bonding"},
+{front:"3 intermolecular forces (weak to strong)?",back:"London dispersion < Dipole-dipole < Hydrogen bonding",cat:"Bonding"},
+{front:"H-bonding requires H bonded to?",back:"F, O, or N",cat:"Bonding"},
+{front:"Name NaCl?",back:"Sodium chloride (ionic: metal + nonmetal, -ide ending)",cat:"Nomenclature"},
+{front:"Name FeCl3?",back:"Iron(III) chloride (Roman numeral for transition metal charge)",cat:"Nomenclature"},
+{front:"Name N2O5?",back:"Dinitrogen pentoxide (covalent: use prefixes)",cat:"Nomenclature"},
+{front:"Formula for nitrate?",back:"NO3-",cat:"Nomenclature"},
+{front:"Formula for sulfate?",back:"SO4 2-",cat:"Nomenclature"},
+{front:"Formula for phosphate?",back:"PO4 3-",cat:"Nomenclature"},
+{front:"Formula for hydroxide?",back:"OH-",cat:"Nomenclature"},
+{front:"Avogadro's number?",back:"6.022 x 10^23 particles/mol",cat:"Stoichiometry"},
+{front:"How to calculate moles from grams?",back:"moles = mass (g) / molar mass (g/mol)",cat:"Stoichiometry"},
+{front:"Stoichiometry roadmap?",back:"grams A -> moles A -> moles B -> grams B",cat:"Stoichiometry"},
+{front:"% yield formula?",back:"(actual yield / theoretical yield) x 100",cat:"Stoichiometry"},
+{front:"Empirical vs. molecular formula?",back:"Empirical: simplest ratio (CH2O). Molecular: actual (C6H12O6).",cat:"Stoichiometry"},
+{front:"Ideal gas law?",back:"PV = nRT. R = 0.0821 L atm/mol K.",cat:"Gases"},
+{front:"Molar volume at STP?",back:"22.4 L/mol (at 0 C and 1 atm)",cat:"Gases"},
+{front:"1 atm = ? mmHg?",back:"760 mmHg = 760 torr = 101.325 kPa",cat:"Gases"},
+{front:"Boyle's Law?",back:"P1V1 = P2V2 (P and V inversely proportional at const T, n)",cat:"Gases"},
+{front:"Charles's Law?",back:"V1/T1 = V2/T2 (V and T directly proportional at const P, n)",cat:"Gases"},
+{front:"Dalton's Law?",back:"P_total = P1 + P2 + P3 + ... (partial pressures add up)",cat:"Gases"},
+{front:"Exothermic vs. Endothermic?",back:"Exo: releases heat, ΔH < 0. Endo: absorbs heat, ΔH > 0.",cat:"Thermochemistry"},
+{front:"q = mcΔT: what is c for water?",back:"4.184 J/g·°C",cat:"Thermochemistry"},
+{front:"Hess's Law?",back:"ΔH is the same regardless of path. ΔH°rxn = ΣΔH°f(prod) - ΣΔH°f(react).",cat:"Thermochemistry"},
+{front:"ΔH°f of an element in standard state?",back:"Zero, by definition.",cat:"Thermochemistry"},
+{front:"Molarity formula?",back:"M = moles solute / liters solution",cat:"Solutions"},
+{front:"Dilution equation?",back:"M1V1 = M2V2",cat:"Solutions"},
+{front:"Strong electrolyte vs. nonelectrolyte?",back:"Strong: fully dissociates into ions (NaCl). Non: no ions (sugar).",cat:"Solutions"},
+{front:"Like dissolves like means?",back:"Polar dissolves polar/ionic. Nonpolar dissolves nonpolar.",cat:"Solutions"}
+];
+
+const shortAnswerData=[
+{q:"Explain the difference between ionic and covalent bonding. What types of atoms are involved in each, and what happens to the electrons?",concepts:[{terms:["transfer","lose","gain"],label:"ionic: electrons are transferred",weight:3},{terms:["shar"],label:"covalent: electrons are shared",weight:3},{terms:["metal","nonmetal"],label:"ionic: metal + nonmetal",weight:2},{terms:["nonmetal","nonmetal"],label:"covalent: nonmetal + nonmetal",weight:2},{terms:["electronegativity","en diff"],label:"electronegativity difference determines bond type",weight:1},{terms:["ionic","crystal","lattice","high melting"],label:"ionic compounds form crystal lattices",weight:1}],fullAnswer:"Ionic bonds form between metals and nonmetals through electron transfer: the metal loses electrons (becomes a cation) and the nonmetal gains them (becomes an anion). Covalent bonds form between two nonmetals through electron sharing. Large electronegativity differences (>1.7) produce ionic bonds; smaller differences produce covalent bonds (polar if 0.4-1.7, nonpolar if <0.4).",cat:"Bonding"},
+{q:"Describe the periodic trends for atomic radius and ionization energy. Explain WHY each trend occurs.",concepts:[{terms:["radius","decrease","smaller","shrink"],label:"atomic radius decreases across a period",weight:2},{terms:["radius","increase","larger","bigger"],label:"atomic radius increases down a group",weight:2},{terms:["proton","nuclear charge","pull"],label:"more protons pull electrons closer across a period",weight:2},{terms:["shell","energy level","orbit"],label:"more shells added going down a group",weight:2},{terms:["ionization","increase","harder"],label:"ionization energy increases across a period",weight:2},{terms:["ionization","decrease","easier"],label:"ionization energy decreases down a group",weight:2}],fullAnswer:"Atomic radius decreases across a period because more protons pull electrons closer (more nuclear charge, same shell). It increases down a group because new electron shells are added. Ionization energy increases across a period because the nucleus holds electrons more tightly. It decreases down a group because outer electrons are farther from the nucleus and easier to remove.",cat:"Periodicity"},
+{q:"Explain what a limiting reagent is and how you determine which reactant is the limiting reagent in a reaction.",concepts:[{terms:["run out","consumed","used up"],label:"limiting reagent is consumed first",weight:3},{terms:["product","determine","maximum"],label:"determines maximum amount of product",weight:2},{terms:["mole","ratio","convert"],label:"compare mole ratios to determine which runs out",weight:3},{terms:["excess","leftover","remain"],label:"the other reactant is in excess (leftover)",weight:1},{terms:["theoretical","yield"],label:"theoretical yield is based on limiting reagent",weight:1}],fullAnswer:"The limiting reagent is the reactant that is completely consumed first, determining the maximum amount of product that can form. To find it, convert all reactant masses to moles, then use the mole ratio from the balanced equation to see which reactant produces less product. That reactant is limiting. The other is in excess. Theoretical yield is calculated from the limiting reagent.",cat:"Stoichiometry"},
+{q:"State the ideal gas law and explain what each variable represents. Under what conditions does a real gas behave most ideally?",concepts:[{terms:["pv=nrt","pv = nrt"],label:"PV = nRT",weight:3},{terms:["pressure","p "],label:"P = pressure",weight:1},{terms:["volume","v "],label:"V = volume",weight:1},{terms:["mole"," n "],label:"n = moles",weight:1},{terms:["temperature","t ","kelvin"],label:"T = temperature in Kelvin",weight:1},{terms:["0.0821"," r ","gas constant"],label:"R = 0.0821 L atm/mol K",weight:2},{terms:["high temp","low pressure","far apart"],label:"real gases behave ideally at high T and low P",weight:2}],fullAnswer:"PV = nRT, where P = pressure (atm), V = volume (L), n = moles, R = 0.0821 L atm/mol K, and T = temperature (must be in Kelvin). Real gases behave most ideally at high temperatures and low pressures, when gas particles are far apart, have high kinetic energy, and intermolecular forces are minimal.",cat:"Gases"},
+{q:"Explain the difference between exothermic and endothermic reactions in terms of energy flow, the sign of delta H, and how they feel.",concepts:[{terms:["exothermic","release","give off"],label:"exothermic: releases heat to surroundings",weight:3},{terms:["endothermic","absorb","take in"],label:"endothermic: absorbs heat from surroundings",weight:3},{terms:["negative","< 0","less than zero"],label:"exothermic: ΔH < 0 (negative)",weight:2},{terms:["positive","> 0","greater than zero"],label:"endothermic: ΔH > 0 (positive)",weight:2},{terms:["hot","warm"],label:"exothermic reactions feel hot",weight:1},{terms:["cold","cool"],label:"endothermic reactions feel cold",weight:1}],fullAnswer:"Exothermic reactions release heat from the system to the surroundings, feel hot to the touch, and have a negative ΔH (ΔH < 0). Endothermic reactions absorb heat from the surroundings into the system, feel cold, and have a positive ΔH (ΔH > 0). Energy is conserved: q_system = -q_surroundings.",cat:"Thermochemistry"},
+{q:"Explain how VSEPR theory predicts the shape of a molecule. Why does water (H2O) have a bent shape rather than a linear shape?",concepts:[{terms:["electron","repel","repulsion","pair"],label:"electron groups repel each other to maximize distance",weight:3},{terms:["lone pair","nonbonding"],label:"lone pairs affect geometry",weight:3},{terms:["tetrahedral","4","four"],label:"water has 4 electron groups (tetrahedral electron geometry)",weight:2},{terms:["2 bond","2 lone","two bond","two lone"],label:"water: 2 bonding pairs + 2 lone pairs",weight:2},{terms:["bent","angular","v-shape"],label:"molecular shape is bent",weight:2},{terms:["109","104","less than"],label:"bond angle less than 109.5 degrees (~104.5)",weight:1}],fullAnswer:"VSEPR theory says electron groups (bonds and lone pairs) around a central atom repel each other and arrange themselves to be as far apart as possible. Water has 4 electron groups on oxygen (2 O-H bonds + 2 lone pairs), giving a tetrahedral electron geometry. But with 2 bonds and 2 lone pairs, the molecular shape is bent (~104.5 degrees). Lone pairs compress the bond angle below the ideal 109.5 degrees.",cat:"Bonding"},
+{q:"What is Hess's Law and why is it useful? Include the formula for calculating standard enthalpy of reaction from enthalpies of formation.",concepts:[{terms:["path","independent","same regardless","route"],label:"ΔH is the same regardless of the reaction path",weight:3},{terms:["sum","add","steps"],label:"can add enthalpy changes of individual steps",weight:2},{terms:["product","reactant","formation"],label:"ΔH°rxn = ΣΔH°f(products) - ΣΔH°f(reactants)",weight:3},{terms:["state function"],label:"enthalpy is a state function",weight:1},{terms:["measure","difficult","cannot","indirectly"],label:"useful for reactions difficult to measure directly",weight:1}],fullAnswer:"Hess's Law states that the enthalpy change for a reaction is the same regardless of the pathway taken, because enthalpy is a state function. This means we can add ΔH values for individual steps to find the overall ΔH. The standard enthalpy formula is: ΔH°rxn = ΣΔH°f(products) - ΣΔH°f(reactants). This is useful for calculating ΔH for reactions that are difficult or impossible to measure directly.",cat:"Thermochemistry"},
+{q:"Describe what molarity means and explain the dilution equation M1V1 = M2V2. Why does this equation work?",concepts:[{terms:["moles","solute","liter","volume"],label:"molarity = moles of solute / liters of solution",weight:3},{terms:["m1v1","m2v2","dilut"],label:"M1V1 = M2V2 for dilution",weight:3},{terms:["moles","same","constant","unchanged"],label:"moles of solute stay constant during dilution",weight:3},{terms:["water","solvent","add"],label:"adding solvent (water) changes volume and concentration",weight:1},{terms:["concentration","decrease","lower"],label:"concentration decreases when diluted",weight:1}],fullAnswer:"Molarity (M) is moles of solute divided by liters of solution (mol/L). When you dilute a solution by adding more solvent, the volume increases and concentration decreases, but the total moles of solute stay the same. Since M x V = moles, and moles don't change, M1V1 = M2V2. This lets you calculate the new concentration after dilution.",cat:"Solutions"}
+];
+
+function buildQuiz(){const c=document.getElementById('quiz-container');c.innerHTML='';quizData.forEach((q,i)=>{const d=document.createElement('div');d.className='quiz-question';d.id='qq-'+i;let o=q.opts.map((opt,j)=>'<li><label id="ql-'+i+'-'+j+'"><input type="radio" name="q'+i+'" value="'+j+'"> '+opt+'</label></li>').join('');d.innerHTML='<div class="q-number">Question '+(i+1)+' &middot; '+q.cat+'</div><p class="q-text">'+q.q+'</p><ul class="quiz-options">'+o+'</ul><div class="quiz-feedback" id="qf-'+i+'"></div>';c.appendChild(d)})}
+function checkQuiz(){let correct=0;quizData.forEach((q,i)=>{const s=document.querySelector('input[name="q'+i+'"]:checked');const fb=document.getElementById('qf-'+i);q.opts.forEach((_,j)=>{document.getElementById('ql-'+i+'-'+j).className=''});if(s){const v=parseInt(s.value);if(v===q.ans){correct++;document.getElementById('ql-'+i+'-'+v).className='correct';fb.className='quiz-feedback show correct-fb';fb.textContent='\u2713 Correct! '+q.explain}else{document.getElementById('ql-'+i+'-'+v).className='incorrect';document.getElementById('ql-'+i+'-'+q.ans).className='reveal-correct';fb.className='quiz-feedback show incorrect-fb';fb.textContent='\u2717 '+q.explain}}else{document.getElementById('ql-'+i+'-'+q.ans).className='reveal-correct';fb.className='quiz-feedback show incorrect-fb';fb.textContent='No answer selected. '+q.explain}});const sc=document.getElementById('quiz-score');const pct=Math.round((correct/quizData.length)*100);document.getElementById('score-number').textContent=correct+' / '+quizData.length;document.getElementById('score-label').textContent=pct+'% \u2014 '+(pct>=90?'Outstanding!':pct>=75?'Great job!':pct>=60?'Good effort. Review what you missed.':'Keep studying and try again.');sc.style.display='block';sc.scrollIntoView({behavior:'smooth',block:'center'})}
+function resetQuiz(){quizData.forEach((q,i)=>{document.querySelectorAll('input[name="q'+i+'"]').forEach(r=>r.checked=false);q.opts.forEach((_,j)=>{document.getElementById('ql-'+i+'-'+j).className=''});const fb=document.getElementById('qf-'+i);fb.className='quiz-feedback';fb.textContent=''});document.getElementById('quiz-score').style.display='none';document.getElementById('quiz-container').scrollIntoView({behavior:'smooth'})}
+let activeCategory='All';
+function getCategories(){return['All',...new Set(flashcardData.map(f=>f.cat))]}
+function buildFilters(){const c=document.getElementById('fc-filters');c.innerHTML=getCategories().map(cat=>'<button class="fc-filter-btn '+(cat==='All'?'active':'')+'" onclick="filterCards(\''+cat+'\')">'+cat+'</button>').join('')}
+function filterCards(cat){activeCategory=cat;document.querySelectorAll('.fc-filter-btn').forEach(b=>{b.classList.toggle('active',b.textContent===cat)});buildFlashcards()}
+function buildFlashcards(){const c=document.getElementById('flashcard-container');const f=activeCategory==='All'?flashcardData:flashcardData.filter(f=>f.cat===activeCategory);c.innerHTML=f.map(fc=>'<div class="flashcard" onclick="this.classList.toggle(\'flipped\')"><div class="flashcard-inner"><div class="flashcard-front"><div class="fc-label">'+fc.cat+'</div><div class="fc-question">'+fc.front+'</div><div class="fc-hint">click to flip</div></div><div class="flashcard-back"><div class="fc-label">Answer</div><div class="fc-answer">'+fc.back+'</div></div></div></div>').join('')}
+function buildShortAnswer(){const c=document.getElementById('sa-container');c.innerHTML='';shortAnswerData.forEach((q,i)=>{const d=document.createElement('div');d.className='sa-question';d.id='sa-'+i;d.innerHTML='<div class="q-number">Short Answer '+(i+1)+' &middot; '+q.cat+'</div><p class="q-text">'+q.q+'</p><textarea class="sa-textarea" id="sa-input-'+i+'" placeholder="Type your answer here..."></textarea><div><button class="sa-submit-btn" id="sa-btn-'+i+'" onclick="gradeAnswer('+i+')">Grade My Answer</button></div><div class="sa-loading" id="sa-loading-'+i+'" style="display:none"><div class="spinner"></div><span>Evaluating...</span></div><div class="sa-feedback" id="sa-fb-'+i+'"></div>';c.appendChild(d)})}
+function gradeAnswer(index){const input=document.getElementById('sa-input-'+index).value.trim();if(!input){alert('Please type an answer.');return}const btn=document.getElementById('sa-btn-'+index);const fb=document.getElementById('sa-fb-'+index);const loading=document.getElementById('sa-loading-'+index);btn.disabled=true;loading.style.display='inline-flex';fb.className='sa-feedback';fb.removeAttribute('style');setTimeout(()=>{const q=shortAnswerData[index];const low=input.toLowerCase();let tw=0,ew=0;const matched=[],missed=[];q.concepts.forEach(c=>{tw+=c.weight;if(c.terms.some(t=>low.includes(t.toLowerCase()))){ew+=c.weight;matched.push(c.label)}else{missed.push({label:c.label,weight:c.weight})}});missed.sort((a,b)=>b.weight-a.weight);const pct=tw>0?ew/tw:0;let grade,icon,cls;if(pct>=.65){grade='good';icon='\u2713 Nice work!';cls='grade-good'}else if(pct>=.35){grade='partial';icon='\u25cb Getting there!';cls='grade-partial'}else{grade='needs_work';icon='\u2717 Keep working on this one.';cls='grade-needs-work'}let feedback='';if(matched.length>0)feedback+='You correctly addressed: '+matched.join('; ')+'. ';if(grade==='good'&&missed.length>0)feedback+='To strengthen: '+missed.slice(0,2).map(m=>m.label).join('; ')+'.';else if(grade==='partial')feedback+='Key concepts missed: '+missed.slice(0,3).map(m=>m.label).join('; ')+'.';else feedback+='Needs more detail. Include: '+missed.slice(0,3).map(m=>m.label).join('; ')+'.';feedback+='<br><br><strong>Model answer:</strong> '+q.fullAnswer;loading.style.display='none';btn.disabled=false;fb.className='sa-feedback show '+cls;fb.innerHTML='<strong>'+icon+'</strong> '+feedback},600)}
+document.addEventListener('DOMContentLoaded',()=>{buildQuiz();buildFilters();buildFlashcards();buildShortAnswer()});
+</script>
+</body>
+</html>
